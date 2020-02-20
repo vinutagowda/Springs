@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> <!-- bean definitions here -->
+
+<bean id = "g1" class = "com.cts.service.GreetServiceSimpleImpl"> </bean>
+    <bean id = "g2" class = "com.cts.service.GreetServiceEnhancedImpl">
+     
+     <property name="Greeting" value="hai"></property> 
+ <!--  <constructor-arg index="0"  value="namascar"></constructor-arg> -->
+     </bean>
+     <bean id = "gmp1" class = "com.cts.service.GreetNoteProviderSimpleImpl"/>
+     <bean id = "g3" class = "com.cts.service.GreetNoteServiceAdvanceImpl">
+     <property name="gmp" ref="gmp1"></property>   </bean>
+      <bean id = "g4" class = "com.cts.service.GreetNoteServiceAdvanceImpl">
+       <property name="gmp" ><bean class="com.cts.service.GreetNoteProviderTimeBasedImpl"/></property>  </bean> 
+     
+  
+</beans>
