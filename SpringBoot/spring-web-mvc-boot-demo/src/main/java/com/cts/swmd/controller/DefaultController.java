@@ -9,22 +9,23 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class DefaultController {
+	
 	@Value("#{${app.title}}")
 	private String appTitle;
 	
 	@GetMapping({"","/","/home"})
 	public ModelAndView defaultGetRequestHandler() {
 		ModelAndView mv=new ModelAndView();
-		
 		mv.setViewName("home");
+		
 		mv.addObject("pageTitle","Home Page-Welcome All");
 		mv.addObject("developers",new String[]{"vinu","abhi","megha"});
 		return mv;
 		
 	}
 	@RequestMapping("/header")
-    public ModelAndView getHeaderPage() {
-		return new ModelAndView("header","appTitle","appTitle");
+	public ModelAndView getHeaderPage() {
+		return new ModelAndView("header","appTitle",appTitle);
 	}
 	@RequestMapping("/footer")
 	public String getFooterPage() {
@@ -32,7 +33,7 @@ public class DefaultController {
 	}
 	@GetMapping("/hello")
 	public ModelAndView sayHello(@RequestParam(name="salut",required=false,defaultValue="Mr.")  String salutation, 
-			@RequestParam(name="unm",required=false,defaultValue="SomeBody")	String userName) {
+			@RequestParam(name="unm",required=false,defaultValue="")	String userName) {
 		
 		return new ModelAndView("helloPage","msg","Hello!"+salutation +userName);
 		
