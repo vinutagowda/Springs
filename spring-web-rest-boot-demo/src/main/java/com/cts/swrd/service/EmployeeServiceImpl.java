@@ -86,9 +86,9 @@ public class EmployeeServiceImpl  implements EmployeeService{
 	}
 
 	@Override
-	public List<Employee> findAllByJoindate(LocalDate joinDate) {
+	public List<Employee> findAllByJoinDate(LocalDate joinDate) {
 	
-		return empRepo.findAllJoinDate(joinDate);
+		return empRepo.findAllByJoinDate(joinDate);
 	}
 
 	@Override

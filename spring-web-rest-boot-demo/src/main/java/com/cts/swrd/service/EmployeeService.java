@@ -19,7 +19,7 @@ public interface EmployeeService {
 	
 	List<Employee> findAll();
 	List<Employee> findAllByDept(Department dept);
-	List<Employee> findAllByJoindate(LocalDate joinDate);
+	List<Employee> findAllByJoinDate(LocalDate joinDate);
 	List<Employee> findAllByBasicRange(double lb,double ub);
 	
 	

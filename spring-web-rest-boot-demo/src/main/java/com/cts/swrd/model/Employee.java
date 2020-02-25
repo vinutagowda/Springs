@@ -33,6 +33,7 @@ public class Employee {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+
 	private Long empId;
 	
 	@NotEmpty(message="firstName can not be empty")
@@ -54,7 +55,7 @@ public class Employee {
 	@Enumerated(EnumType.STRING)
 	private Department dept;
 	
-	@Pattern(regexp="[1-9][0-9] {9}",message="Mobile number is expected to be 10 digits not strings")
+	@Pattern(regexp="[1-9][0-9]{9}",message="Mobile number is expected to be 10 digits not strings")
 	@NotNull(message="Mobile number canmnot be omitted.")
 	private String mobileNumber;
 	
